@@ -1,0 +1,72 @@
+{
+  "scenario_id": "db_pool",
+  "service": "checkout-api",
+  "incident_window": {
+    "start": "2026-09-22T13:30:00Z",
+    "end": "2026-09-22T14:30:00Z"
+  },
+  "metrics": {
+    "error_rate": [
+      { "timestamp": "2026-09-22T13:30:00Z", "value": 0.004 },
+      { "timestamp": "2026-09-22T13:35:00Z", "value": 0.005 },
+      { "timestamp": "2026-09-22T13:40:00Z", "value": 0.004 },
+      { "timestamp": "2026-09-22T13:45:00Z", "value": 0.005 },
+      { "timestamp": "2026-09-22T13:50:00Z", "value": 0.004 },
+      { "timestamp": "2026-09-22T13:55:00Z", "value": 0.004 },
+      { "timestamp": "2026-09-22T14:00:00Z", "value": 0.006 },
+      { "timestamp": "2026-09-22T14:05:00Z", "value": 0.091 },
+      { "timestamp": "2026-09-22T14:10:00Z", "value": 0.092 },
+      { "timestamp": "2026-09-22T14:15:00Z", "value": 0.089 },
+      { "timestamp": "2026-09-22T14:20:00Z", "value": 0.09 },
+      { "timestamp": "2026-09-22T14:25:00Z", "value": 0.088 },
+      { "timestamp": "2026-09-22T14:30:00Z", "value": 0.091 }
+    ],
+    "latency_p99_ms": [
+      { "timestamp": "2026-09-22T13:30:00Z", "value": 182 },
+      { "timestamp": "2026-09-22T13:35:00Z", "value": 178 },
+      { "timestamp": "2026-09-22T13:40:00Z", "value": 185 },
+      { "timestamp": "2026-09-22T13:45:00Z", "value": 180 },
+      { "timestamp": "2026-09-22T13:50:00Z", "value": 181 },
+      { "timestamp": "2026-09-22T13:55:00Z", "value": 183 },
+      { "timestamp": "2026-09-22T14:00:00Z", "value": 210 },
+      { "timestamp": "2026-09-22T14:05:00Z", "value": 2400 },
+      { "timestamp": "2026-09-22T14:10:00Z", "value": 2610 },
+      { "timestamp": "2026-09-22T14:15:00Z", "value": 2480 },
+      { "timestamp": "2026-09-22T14:20:00Z", "value": 2520 },
+      { "timestamp": "2026-09-22T14:25:00Z", "value": 2455 },
+      { "timestamp": "2026-09-22T14:30:00Z", "value": 2590 }
+    ]
+  },
+  "deployments": [
+    {
+      "service": "checkout-api",
+      "version": "v1.4.1",
+      "deployed_at": "2026-09-19T10:00:00Z",
+      "revision": "5",
+      "previous_version": "v1.4.0"
+    }
+  ],
+  "logs": [
+    { "timestamp": "2026-09-22T13:30:05Z", "level": "INFO", "message": "GET /checkout 200 in 142ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T13:35:11Z", "level": "INFO", "message": "GET /checkout 200 in 151ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T13:40:02Z", "level": "INFO", "message": "GET /cart 200 in 88ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T13:45:22Z", "level": "INFO", "message": "GET /checkout 200 in 149ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T13:50:09Z", "level": "INFO", "message": "POST /checkout 200 in 203ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T13:55:41Z", "level": "INFO", "message": "GET /checkout 200 in 156ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:00:12Z", "level": "WARN", "message": "db pool utilization at 82 percent", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:03:07Z", "level": "ERROR", "message": "sqlalchemy.exc.TimeoutError: connection pool exhausted after 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:03:19Z", "level": "ERROR", "message": "sqlalchemy.exc.TimeoutError: connection pool exhausted after 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:04:02Z", "level": "ERROR", "message": "connection pool timeout: could not acquire connection within 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:05:33Z", "level": "ERROR", "message": "sqlalchemy.exc.TimeoutError: connection pool exhausted after 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:06:44Z", "level": "ERROR", "message": "sqlalchemy.exc.TimeoutError: connection pool exhausted after 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:07:15Z", "level": "ERROR", "message": "connection pool timeout: could not acquire connection within 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:09:30Z", "level": "ERROR", "message": "sqlalchemy.exc.TimeoutError: connection pool exhausted after 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:11:02Z", "level": "ERROR", "message": "connection pool timeout: could not acquire connection within 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:13:26Z", "level": "ERROR", "message": "sqlalchemy.exc.TimeoutError: connection pool exhausted after 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:15:48Z", "level": "ERROR", "message": "sqlalchemy.exc.TimeoutError: connection pool exhausted after 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:18:11Z", "level": "ERROR", "message": "connection pool timeout: could not acquire connection within 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:21:33Z", "level": "ERROR", "message": "sqlalchemy.exc.TimeoutError: connection pool exhausted after 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:24:05Z", "level": "ERROR", "message": "sqlalchemy.exc.TimeoutError: connection pool exhausted after 30s", "service": "checkout-api" },
+    { "timestamp": "2026-09-22T14:27:12Z", "level": "INFO", "message": "GET /health 200 in 3ms", "service": "checkout-api" }
+  ]
+}

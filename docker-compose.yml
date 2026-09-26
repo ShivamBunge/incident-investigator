@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: incident_investigator
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d incident_investigator"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    env_file:
+      - .env
+    environment:
+      # Inside the compose network the DB host is "postgres"
+      DATABASE_URL: postgresql+psycopg2://postgres:postgres@postgres:5432/incident_investigator
+    ports:
+      - "8000:8000"
+    extra_hosts:
+      # lets the app container reach the kind API server exposed on the host
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    # Note: the observability + kubernetes MCP servers are spawned as child
+    # processes of the app (stdio transport), so no extra services are needed.
+    # For kind connectivity from inside the container, mount a kubeconfig and
+    # point KUBECONFIG_PATH at it; the k8s MCP degrades gracefully if the
+    # cluster is unreachable.
+
+volumes:
+  pgdata:

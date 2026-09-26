@@ -1,0 +1,84 @@
+{
+  "version": "1.1",
+  "description": "Ground truth for the three seeded incident scenarios (spec Section 10). Retrieval cases drive Recall@1/3/5; investigation cases drive root-cause accuracy, tool selection, evidence coverage, and unsupported-claim rate.",
+  "retrieval_cases": [
+    {
+      "id": "scenario_a_db_pool",
+      "question": "Why is checkout-api returning 5xx errors?",
+      "rag_query": "checkout-api sqlalchemy connection pool exhausted runbook",
+      "service": "checkout-api",
+      "expected_document_title": "Checkout DB Connection Pool Exhaustion Runbook",
+      "expected_root_cause": "database connection pool exhaustion",
+      "time_range": { "start": "2026-09-22T13:30:00Z", "end": "2026-09-22T14:30:00Z" },
+      "expected_evidence_types": [
+        "metric",
+        "log_signature",
+        "deployment",
+        "workload_status",
+        "pod_status",
+        "runbook_chunk"
+      ],
+      "expected_tools": [
+        "get_service_error_rate",
+        "get_service_latency",
+        "get_error_log_summary",
+        "search_logs",
+        "get_workload_summary",
+        "get_pod_status",
+        "get_recent_deployments"
+      ]
+    },
+    {
+      "id": "scenario_b_dependency_timeout",
+      "question": "Why is checkout-api slow and timing out?",
+      "rag_query": "checkout-api timeout calling payment-service downstream dependency runbook",
+      "service": "checkout-api",
+      "expected_document_title": "Downstream Dependency Timeout Runbook",
+      "expected_root_cause": "payment-service dependency failure",
+      "time_range": { "start": "2026-09-23T13:30:00Z", "end": "2026-09-23T14:30:00Z" },
+      "expected_evidence_types": [
+        "metric",
+        "log_signature",
+        "deployment",
+        "workload_status",
+        "pod_status",
+        "runbook_chunk"
+      ],
+      "expected_tools": [
+        "get_service_error_rate",
+        "get_service_latency",
+        "get_error_log_summary",
+        "search_logs",
+        "get_workload_summary",
+        "get_pod_status",
+        "get_recent_deployments"
+      ]
+    },
+    {
+      "id": "scenario_c_bad_deployment",
+      "question": "Why did checkout-api start erroring right after the release?",
+      "rag_query": "checkout-api errors after new deployment rollout regression runbook",
+      "service": "checkout-api",
+      "expected_document_title": "Deployment Regression Runbook",
+      "expected_root_cause": "recent deployment regression",
+      "time_range": { "start": "2026-09-24T13:30:00Z", "end": "2026-09-24T14:30:00Z" },
+      "expected_evidence_types": [
+        "metric",
+        "log_signature",
+        "deployment",
+        "workload_status",
+        "pod_status",
+        "runbook_chunk"
+      ],
+      "expected_tools": [
+        "get_service_error_rate",
+        "get_service_latency",
+        "get_error_log_summary",
+        "search_logs",
+        "get_workload_summary",
+        "get_pod_status",
+        "get_recent_deployments"
+      ]
+    }
+  ]
+}

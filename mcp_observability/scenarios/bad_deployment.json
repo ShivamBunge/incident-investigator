@@ -1,0 +1,70 @@
+{
+  "scenario_id": "bad_deployment",
+  "service": "checkout-api",
+  "incident_window": {
+    "start": "2026-09-24T13:30:00Z",
+    "end": "2026-09-24T14:30:00Z"
+  },
+  "metrics": {
+    "error_rate": [
+      { "timestamp": "2026-09-24T13:30:00Z", "value": 0.004 },
+      { "timestamp": "2026-09-24T13:35:00Z", "value": 0.004 },
+      { "timestamp": "2026-09-24T13:40:00Z", "value": 0.005 },
+      { "timestamp": "2026-09-24T13:45:00Z", "value": 0.004 },
+      { "timestamp": "2026-09-24T13:50:00Z", "value": 0.005 },
+      { "timestamp": "2026-09-24T13:55:00Z", "value": 0.004 },
+      { "timestamp": "2026-09-24T14:00:00Z", "value": 0.004 },
+      { "timestamp": "2026-09-24T14:05:00Z", "value": 0.075 },
+      { "timestamp": "2026-09-24T14:10:00Z", "value": 0.081 },
+      { "timestamp": "2026-09-24T14:15:00Z", "value": 0.078 },
+      { "timestamp": "2026-09-24T14:20:00Z", "value": 0.079 },
+      { "timestamp": "2026-09-24T14:25:00Z", "value": 0.083 },
+      { "timestamp": "2026-09-24T14:30:00Z", "value": 0.077 }
+    ],
+    "latency_p99_ms": [
+      { "timestamp": "2026-09-24T13:30:00Z", "value": 181 },
+      { "timestamp": "2026-09-24T13:35:00Z", "value": 179 },
+      { "timestamp": "2026-09-24T13:40:00Z", "value": 184 },
+      { "timestamp": "2026-09-24T13:45:00Z", "value": 180 },
+      { "timestamp": "2026-09-24T13:50:00Z", "value": 182 },
+      { "timestamp": "2026-09-24T13:55:00Z", "value": 178 },
+      { "timestamp": "2026-09-24T14:00:00Z", "value": 195 },
+      { "timestamp": "2026-09-24T14:05:00Z", "value": 950 },
+      { "timestamp": "2026-09-24T14:10:00Z", "value": 1010 },
+      { "timestamp": "2026-09-24T14:15:00Z", "value": 980 },
+      { "timestamp": "2026-09-24T14:20:00Z", "value": 995 },
+      { "timestamp": "2026-09-24T14:25:00Z", "value": 1005 },
+      { "timestamp": "2026-09-24T14:30:00Z", "value": 990 }
+    ]
+  },
+  "deployments": [
+    {
+      "service": "checkout-api",
+      "version": "v1.5.0",
+      "deployed_at": "2026-09-24T14:02:00Z",
+      "revision": "7",
+      "previous_version": "v1.4.2"
+    }
+  ],
+  "logs": [
+    { "timestamp": "2026-09-24T13:30:06Z", "level": "INFO", "message": "GET /checkout 200 in 140ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T13:37:12Z", "level": "INFO", "message": "POST /checkout 200 in 205ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T13:44:03Z", "level": "INFO", "message": "GET /cart 200 in 87ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T13:51:29Z", "level": "INFO", "message": "GET /checkout 200 in 147ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T13:58:44Z", "level": "INFO", "message": "GET /checkout 200 in 152ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:02:00Z", "level": "INFO", "message": "deployment v1.5.0 rollout started", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:03:18Z", "level": "ERROR", "message": "NullPointerException at CheckoutPricingMapper.mapTier (CheckoutPricingMapper.java:88)", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:03:52Z", "level": "ERROR", "message": "NullPointerException at CheckoutPricingMapper.mapTier (CheckoutPricingMapper.java:88)", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:04:30Z", "level": "ERROR", "message": "NullPointerException at CheckoutPricingMapper.mapTier (CheckoutPricingMapper.java:88)", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:05:41Z", "level": "ERROR", "message": "NullPointerException at CheckoutPricingMapper.mapTier (CheckoutPricingMapper.java:88)", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:06:15Z", "level": "ERROR", "message": "POST /checkout 500 in 412ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:08:09Z", "level": "ERROR", "message": "NullPointerException at CheckoutPricingMapper.mapTier (CheckoutPricingMapper.java:88)", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:10:27Z", "level": "ERROR", "message": "NullPointerException at CheckoutPricingMapper.mapTier (CheckoutPricingMapper.java:88)", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:12:36Z", "level": "ERROR", "message": "POST /checkout 500 in 388ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:15:54Z", "level": "ERROR", "message": "NullPointerException at CheckoutPricingMapper.mapTier (CheckoutPricingMapper.java:88)", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:18:21Z", "level": "ERROR", "message": "NullPointerException at CheckoutPricingMapper.mapTier (CheckoutPricingMapper.java:88)", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:21:47Z", "level": "ERROR", "message": "POST /checkout 500 in 401ms", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:24:12Z", "level": "ERROR", "message": "NullPointerException at CheckoutPricingMapper.mapTier (CheckoutPricingMapper.java:88)", "service": "checkout-api" },
+    { "timestamp": "2026-09-24T14:27:38Z", "level": "INFO", "message": "GET /health 200 in 3ms", "service": "checkout-api" }
+  ]
+}

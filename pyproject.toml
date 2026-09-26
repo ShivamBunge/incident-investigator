@@ -1,0 +1,43 @@
+[project]
+name = "incident-investigator"
+version = "0.1.0"
+description = "AI-assisted incident investigator: RAG + MCP evidence collection with evidence-grounded root-cause analysis"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "sqlalchemy>=2.0.30",
+    "alembic>=1.13",
+    "psycopg2-binary>=2.9",
+    "pgvector>=0.3.4",
+    "sentence-transformers>=3.0",
+    "mcp>=1.2.0",
+    "kubernetes>=29.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.4",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*", "mcp_observability*", "mcp_kubernetes*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
